@@ -1,10 +1,311 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>My GitHub Page</title>
-  </head>
-  <body>
-    <h1>Hello GitHub Pages</h1>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="ScentGen: Hierarchical Multimodal Olfactory Semantic Modeling for Molecular Odor Description Generation">
+  <meta name="keywords" content="ScentGen, molecular odor description, olfactory modeling, multimodal representation, large language models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ScentGen: Molecular Odor Description Generation</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+  <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="#top"><strong>ScentGen</strong></a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="#abstract">Abstract</a>
+        <a class="navbar-item" href="#dataset">Dataset</a>
+        <a class="navbar-item" href="#method">Method</a>
+        <a class="navbar-item" href="#results">Results</a>
+        <a class="navbar-item" href="#bibtex">BibTeX</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero scent-hero" id="top">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">ScentGen: Hierarchical Multimodal Olfactory Semantic Modeling for Molecular Odor Description Generation</h1>
+            <div class="is-size-5 publication-authors" style="margin-top: 1rem; margin-bottom: 0.75rem;">
+              <span class="author-block" style="margin: 0 0.5rem;">XXX</span>
+              <span class="author-block" style="margin: 0 0.5rem;">XXX</span>
+              <span class="author-block" style="margin: 0 0.5rem;">XXX</span>
+              <span class="author-block" style="margin: 0 0.5rem;">XXX</span>
+              <span class="author-block" style="margin: 0 0.5rem;">XXX</span>
+            </div>
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="./static/images/scentgen_paper.pdf" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#dataset" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-database"></i></span>
+                  <span>Dataset</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#bibtex" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-quote-right"></i></span>
+                  <span>BibTeX</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section teaser-section">
+    <div class="container is-max-desktop">
+      <figure class="image paper-figure">
+        <div class="pdf-frame pdf-task-comparison" aria-label="Comparison between conventional odor label prediction and molecular odor description generation">
+          <img class="pdf-image" src="./static/images/task_comparison.svg" alt="Comparison between conventional odor label prediction and molecular odor description generation">
+        </div>
+      </figure>
+      <p class="figure-caption">
+        ScentGen moves beyond coarse odor label prediction and generates fine-grained, human-understandable odor descriptions.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="abstract">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              We introduce a molecular odor description generation task, which aims to generate natural language odor descriptions from molecular structures. Unlike conventional methods that describe molecular odor using discrete labels, this task requires models to generate expressive and human-interpretable sensory descriptions. To address this task, we propose a hierarchical multimodal olfactory semantic modeling framework, named <strong>ScentGen</strong>. ScentGen consists of three key components: an odor semantic planner, a semantic adapter, and a description generator. The odor semantic planner integrates complementary molecular information from 1D SMILES sequences, 2D molecular graphs, and 3D molecular conformations to learn discriminative and structured olfactory semantics. The semantic adapter maps the learned olfactory representation into the hidden space of a large language model, transforming molecular odor semantics into language-compatible continuous prompts. Conditioned on these prompts, the description generator produces coherent odor descriptions that reflect plausible sensory characteristics of the input molecule. Considering the lack of molecular datasets with natural language odor descriptions, we further construct a molecular odor description dataset containing paired multimodal molecular representations and human-interpretable odor descriptions. Extensive experiments demonstrate that ScentGen can generate coherent and expressive odor descriptions, providing a more flexible solution for molecular odor understanding beyond discrete odor label prediction.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered key-points">
+        <div class="column">
+          <div class="research-card">
+            <h3 class="title is-5">New Task</h3>
+            <p>Generate natural-language odor descriptions directly from molecular structures, rather than predicting only predefined odor labels.</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="research-card">
+            <h3 class="title is-5">ScentGen Framework</h3>
+            <p>Use an odor semantic planner, semantic adapter, and LLM-based generator to bridge molecular structures and sensory language.</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="research-card">
+            <h3 class="title is-5">MOD Dataset</h3>
+            <p>Construct 4,983 molecule-description pairs with 1D SMILES, 2D molecular graphs, 3D conformations, and natural-language odor descriptions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light" id="dataset">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Molecular Odor Description Dataset</h2>
+      <div class="content has-text-justified">
+        <p>
+          Existing molecular odor datasets are mainly designed for discrete label prediction and usually lack complete textual descriptions. To support molecular odor description generation, we construct the <strong>MOD dataset</strong> based on OpenPOM. Each molecule is paired with a 1D SMILES sequence, a 2D molecular graph, a 3D molecular conformation, and a natural-language odor description.
+        </p>
+        <p>
+          The dataset construction follows four steps: OpenPOM base data collection, molecular information construction, LLM-assisted annotation, and manual check and calibration. The final descriptions cover dominant odor profiles and subtle secondary nuances while maintaining textual fluency, odor consistency, perceptual plausibility, and chemical fidelity.
+        </p>
+      </div>
+      <figure class="image paper-figure">
+        <div class="pdf-frame pdf-dataset-pipeline" aria-label="Dataset construction pipeline and statistics">
+          <img class="pdf-image" src="./static/images/dataset_pipeline.svg" alt="Dataset construction pipeline and statistics">
+        </div>
+      </figure>
+      <p class="figure-caption">
+        Dataset construction pipeline, description length statistics, word cloud statistics, and expert evaluation scores.
+      </p>
+
+      <div class="columns is-centered stats-row">
+        <div class="column is-one-quarter"><div class="stat-card"><span class="stat-number">4,983</span><span class="stat-label">molecules</span></div></div>
+        <div class="column is-one-quarter"><div class="stat-card"><span class="stat-number">1D / 2D / 3D</span><span class="stat-label">molecular modalities</span></div></div>
+        <div class="column is-one-quarter"><div class="stat-card"><span class="stat-number">40-60</span><span class="stat-label">typical words per description</span></div></div>
+        <div class="column is-one-quarter"><div class="stat-card"><span class="stat-number">4.557</span><span class="stat-label">textual fluency score</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="method">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">ScentGen Framework</h2>
+      <div class="content has-text-justified">
+        <p>
+          ScentGen progressively converts molecular information into olfactory semantics and then into natural language. First, the odor semantic planner extracts odor-related cues from 1D SMILES sequences, 2D molecular graphs, and 3D conformations. A sparse Mixture-of-Experts fusion module adaptively integrates complementary cues and produces a unified olfactory representation. Second, the semantic adapter maps this representation into a sequence of continuous virtual prompt tokens in the LLM embedding space. Finally, the description generator, implemented with Qwen-8B, produces fluent and sensory-consistent odor descriptions conditioned on the semantic prompts and task instruction.
+        </p>
+      </div>
+      <figure class="image paper-figure framework-figure">
+        <div class="pdf-frame pdf-scentgen-framework" aria-label="Overview of the ScentGen framework">
+          <img class="pdf-image" src="./static/images/scentgen_framework.svg" alt="Overview of the ScentGen framework">
+        </div>
+      </figure>
+      <p class="figure-caption">
+        Overview of ScentGen: an odor semantic planner extracts compact olfactory semantics, a semantic adapter converts them into continuous soft prompts, and an LLM-based generator produces odor descriptions.
+      </p>
+
+      <div class="columns method-cards">
+        <div class="column">
+          <div class="research-card">
+            <h3 class="title is-5">Odor Semantic Planner</h3>
+            <p>Combines a character-level SMILES Transformer, a GINE graph encoder, and an EGNN conformation encoder with sparse MoE fusion.</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="research-card">
+            <h3 class="title is-5">Semantic Adapter</h3>
+            <p>Projects the 256-dimensional fused olfactory representation into molecule-aware continuous prompt tokens for the frozen LLM.</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="research-card">
+            <h3 class="title is-5">Description Generator</h3>
+            <p>Uses Qwen-8B to generate coherent descriptions that reflect dominant sensory impressions and subtle secondary odor nuances.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light" id="results">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
+      <div class="content has-text-justified">
+        <p>
+          ScentGen achieves the best performance across both the text semantic level and the odor label level. Compared with the supervised fine-tuning baseline, ScentGen improves METEOR, ROUGE, BERTScore-F1, Facets Coverage Mean, and F1, showing stronger molecule-to-odor semantic alignment and broader coverage of key odor facets.
+        </p>
+      </div>
+
+      <div class="table-container">
+        <table class="table is-bordered is-striped is-hoverable is-fullwidth results-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>BLEU ↑</th>
+              <th>METEOR ↑</th>
+              <th>ROUGE ↑</th>
+              <th>BERTScore-F1 ↑</th>
+              <th>FCM ↑</th>
+              <th>F1 ↑</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>GLM-5.1</td><td>5.710</td><td>0.204</td><td>0.234</td><td>0.738</td><td>0.527</td><td>0.535</td></tr>
+            <tr><td>Qwen-3.6</td><td>4.520</td><td>0.181</td><td>0.242</td><td>0.745</td><td>0.558</td><td>0.558</td></tr>
+            <tr><td>DeepSeek-V4</td><td>3.730</td><td>0.175</td><td>0.247</td><td>0.751</td><td>0.549</td><td>0.564</td></tr>
+            <tr><td>Gemini-3.1</td><td>1.480</td><td>0.184</td><td>0.220</td><td>0.744</td><td>0.538</td><td>0.549</td></tr>
+            <tr><td>Claude-Opus</td><td>2.390</td><td>0.202</td><td>0.240</td><td>0.747</td><td>0.587</td><td>0.571</td></tr>
+            <tr><td>GPT-4.1</td><td>0.991</td><td>0.157</td><td>0.210</td><td>0.734</td><td>0.509</td><td>0.522</td></tr>
+            <tr><td>GPT-5.5</td><td>5.416</td><td>0.201</td><td>0.281</td><td>0.755</td><td>0.572</td><td>0.575</td></tr>
+            <tr><td>ChemDFM</td><td>0.073</td><td>0.077</td><td>0.127</td><td>0.636</td><td>0.099</td><td>0.113</td></tr>
+            <tr><td>Qwen-8B</td><td>0.189</td><td>0.069</td><td>0.126</td><td>0.695</td><td>0.432</td><td>0.477</td></tr>
+            <tr><td>SFT</td><td>14.200</td><td>0.330</td><td>0.320</td><td>0.768</td><td>0.549</td><td>0.542</td></tr>
+            <tr class="ours-row"><td><strong>Ours</strong></td><td><strong>15.500</strong></td><td><strong>0.351</strong></td><td><strong>0.353</strong></td><td><strong>0.776</strong></td><td><strong>0.605</strong></td><td><strong>0.616</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="columns is-centered stats-row">
+        <div class="column is-one-third"><div class="stat-card"><span class="stat-number">41.86%</span><span class="stat-label">votes in user study</span></div></div>
+        <div class="column is-one-third"><div class="stat-card"><span class="stat-number">+13.65%</span><span class="stat-label">F1 over SFT</span></div></div>
+        <div class="column is-one-third"><div class="stat-card"><span class="stat-number">+10.20%</span><span class="stat-label">FCM over SFT</span></div></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" id="qualitative">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
+      <div class="content has-text-justified">
+        <p>
+          Qualitative results show that general LLMs can generate fluent descriptions, but they often introduce semantic drift or miss important odor facets. ScentGen better captures dominant odor impressions and secondary nuances, and it avoids over-generation when the molecule has only a subtle odor profile.
+        </p>
+      </div>
+      <figure class="image paper-figure wide-figure">
+        <div class="pdf-frame pdf-qualitative-examples" aria-label="Qualitative examples of molecular odor description generation">
+          <img class="pdf-image" src="./static/images/qualitative_examples.svg" alt="Qualitative examples of molecular odor description generation">
+        </div>
+      </figure>
+      <p class="figure-caption">
+        Qualitative examples covering both single-label and multi-label odor description generation.
+      </p>
+
+    </div>
+  </section>
+
+  <section class="section section-light" id="conclusion">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Conclusion</h2>
+      <div class="content has-text-justified">
+        <p>
+          ScentGen is a hierarchical multimodal olfactory semantic modeling framework for molecular odor description generation. It introduces a language-based formulation of molecular odor understanding, constructs the MOD dataset, and demonstrates that structured olfactory planning and continuous semantic prompting can produce coherent, expressive, and sensory-faithful odor descriptions beyond fixed odor label prediction.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="bibtex">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{scentgen2026,
+  title={ScentGen: Hierarchical Multimodal Olfactory Semantic Modeling for Molecular Odor Description Generation},
+  journal={XXXXX},
+  year={2026}
+}</code></pre>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content has-text-centered">
+            <p>
+              Project page for <strong>ScentGen</strong>. Please update author information, code link, dataset link, and BibTeX entry before public release.
+            </p>
+            <p>
+              Website template adapted from the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies project page</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
 </html>
